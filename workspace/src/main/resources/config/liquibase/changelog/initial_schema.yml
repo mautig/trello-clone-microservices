@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: initial-schema
+      author: mautig
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  name: id
+                  type: varchar(60)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+            tableName: workspace

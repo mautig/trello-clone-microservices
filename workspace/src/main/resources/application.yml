@@ -1,0 +1,9 @@
+server:
+  port: 8081
+
+spring:
+  profiles:
+    active: @spring.profiles.active@
+
+  liquibase:
+    change-log: classpath:config/liquibase/master.yml
