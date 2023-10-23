@@ -5,7 +5,7 @@
 
 ### Spring ###
 application-dev.yml
-
+application-prod.yml
 
 ### Mac ###
 .DS_Store
