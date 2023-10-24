@@ -1,6 +1,7 @@
 package org.mautig.trello.workspace.web.rest;
 
 import org.mautig.trello.workspace.exception.HttpException;
+import org.mautig.trello.workspace.model.response.ExceptionResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -14,10 +15,11 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(EntityNotFoundException.class)
     protected ResponseEntity<?> handleEntityNotFound(EntityNotFoundException ex) {
-        return buildResponseEntity(new HttpException(HttpStatus.NOT_FOUND, ex));
+        ExceptionResponse exceptionResponse = new ExceptionResponse(HttpStatus.NOT_FOUND, ex.getMessage());
+        return buildResponseEntity(exceptionResponse);
     }
 
-    private ResponseEntity<?> buildResponseEntity(HttpException httpException) {
-        return new ResponseEntity<>(httpException, httpException.getStatus());
+    private ResponseEntity<?> buildResponseEntity(ExceptionResponse exceptionResponse) {
+        return new ResponseEntity<>(exceptionResponse, exceptionResponse.getStatus());
     }
 }

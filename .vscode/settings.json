@@ -1,0 +1,13 @@
+{
+  "java.compile.nullAnalysis.mode": "disabled",
+  "cSpell.words": [
+    "liquibase",
+    "mautig",
+    "oidc",
+    "resourceserver",
+    "springframework",
+    "traefik",
+    "varchar"
+  ],
+  "java.configuration.updateBuildConfiguration": "automatic"
+}

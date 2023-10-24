@@ -38,7 +38,7 @@ public class WorkspaceResource {
     public ResponseEntity<WorkspaceResponse> getWorkspaceById(
             @PathVariable String id) {
         Workspace workspace = workspaceRepository.findById(id)
-                .orElseThrow(EntityNotFoundException::new);
+                .orElseThrow(() -> new EntityNotFoundException("Workspace with " + id + "not found"));
         return ResponseEntity.ok(toResponse(workspace));
     }
 

@@ -1,0 +1,13 @@
+http:
+  routers:
+    router0:
+      entryPoints:
+        - web
+      service: workspace
+      rule: Path(`/api/workspace/**`)
+
+  services:
+    workspace:
+      loadBalancer:
+        servers:
+          - url: http://host.docker.internal:8081/api/workspace
